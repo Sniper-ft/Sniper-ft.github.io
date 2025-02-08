@@ -1,4 +1,4 @@
-name: ci 
+name: sniper
 on:
   push:
     branches:
