@@ -35,32 +35,35 @@
 - concurrency control for multiple user
 - failure recovery 
 - security control
-
-## 3 View of Data
+## 3 Levels of Abstraction（抽象层次）
+- Physical level（物理层）: describes how a record (e.g., instructor) is stored.
+- Logical level（逻辑层）: describes data stored in database, and the relationships among the data.
+- View  level（视图层）: application programs hide details of data types.  Views can also hide information (such as an employee’s salary) for security purposes. 
+## 4 View of Data
 ![alt text](image-1.png)
-## 4 Schema and Instance
-### 4.1 Schema
+## 5 Schema and Instance
+### 5.1 Schema
 -  the logical structure of the database 
 -  Analogous to type information of a variable in a program
 -  Physical schema（物理模式）: database design at the physical level
 -  Logical schema（逻辑模式）: database design at the logical level
-### 4.2 Instance(实例)
-- the actual content of the database at a particular point in time
+### 5.2 Instance(实例)
+- the actual content of the database **at a particular point** in time
 - Analogous to the value of a variable
-## 5 Data Independence
+## 6 Data Independence
 - Physical data independence: the ability to modify the physical schema without changing the logical schema
 - Logical data independence: the ability to modify the logical schema without changing the user view schema
-## 6 Data Models
-### 6.1 A collection of tools for describing
+## 7 Data Models
+### 7.1 A collection of tools for describing
 - data  数据
 - data relationships 联系
 - data semantic 语义
 - data constraints 约束
-### 6.2 Relational Model
+### 7.2 Relational Model
 - columns / attributes 列/属性
 - rows / tuples 行/元组
-## 7 Database Languages
-### 7.1 Data defimition language (DDL) 定义语言
+## 8 Database Languages
+### 8.1 Data defimition language (DDL) 定义语言
 !!! example 
     ```
     create table instructor(
@@ -74,13 +77,42 @@
 - DDL compiler generates a set of table templates stored in a data dictionary（数据字典）
 - Data dictionary contains metadata (元数据， i.e., data about data)
   - database schema/integrity constraints/authorization
-### 7.2 data manipulation language (DML) 操作语言
+### 8.2 data manipulation language (DML) 操作语言
 - SQL is the most widely used query language
 - two classes of languages  
   - procedural 过程式 （user specifies what data is required and how to get those data）
   - declarative 陈述式 （without specifying how to get those data）
+### 9 Transaction Management
+- A transaction is a collection of operations that performs **a single logical function** in a database application.
+- Ensures that the database remains in a consistent (correct) state despite system failures (e.g., power failures and operating system crashes) and transaction failures.
+- **Concurrency-control manager** controls the interaction among the concurrent transactions, to ensure the **consistency** of the database. 
+## 10 Database Architecture
+- Centralized databases（集中式数据库） :
+  - 一到少数几个核心，共享内存。
+- 客户端-服务器架构：一台服务器代表多个客户端执行任务。
+- Parallel databases（并行数据库） :
+  - 多 core 共享内存。
+  - Shared disk（共享磁盘）(集群): 所有节点共享访问相同的磁盘存储。
+  - Shared nothing（无共享）: 每个节点拥有自己的磁盘存储，节点之间通过网络通信。
+- Distributed databases（分布式数据库） :
+  - 地理分布。
+  - 模式/数据异构性。
+## 11 Database Applications
+- Two-tier architecture: 应用程序驻留在客户端机器上，并在客户端调用服务器端的数据库系统功能。
+- Three-tier architecture: 客户端机器充当前端，不包含任何直接的数据库调用。客户端通过某种界面（通常是表单界面）与应用服务器通信。应用服务器再与数据库系统通信以访问数据。
+
+??? note
+    ![alt text](image-2.png)
 
 
+## 12 Database Administrator(DBA)
+
+### Functions
+- Schema definition
+- Storage structure and access-method definition
+- Schema and physical-organization modification
+- Granting of authorization for data access
+- Routine maintenance
 ## Homework
 ### 1.7 List four signifcant differences between a file-processing system and a DBMS
 ||file-processing system|DBMS|
