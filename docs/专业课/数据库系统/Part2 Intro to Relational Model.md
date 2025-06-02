@@ -34,8 +34,13 @@
 - Cartesian product: $\times$
   - 两个表中任意两行信息的组合
 
-  ??? example $\text{instructor}\times \text{teaches}$
-      ![alt text]({ADD163ED-E981-408E-868F-9DBB7C1C1394}.png)
+
+!!! example         
+    $\text{instructor}\times \text{teaches}$
+    ![alt text]({ADD163ED-E981-408E-868F-9DBB7C1C1394}.png)
+
+
+
 - rename: $\rho$
   - $\rho_x(E)$
 ### 4.2 Select Operation
