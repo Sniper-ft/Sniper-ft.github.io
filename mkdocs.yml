@@ -25,6 +25,8 @@ markdown_extensions:
   - toc:
       permalink: true
       toc_depth: 4
+  - pymdownx.arithmatex:
+      generic: true
   - meta
   - def_list
   - attr_list
@@ -58,6 +60,7 @@ extra_javascript:
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra_css:
   - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css
