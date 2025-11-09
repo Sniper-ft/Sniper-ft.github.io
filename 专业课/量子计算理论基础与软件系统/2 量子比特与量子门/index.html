@@ -1,0 +1,3634 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://sniper-ft.github.io/%E4%B8%93%E4%B8%9A%E8%AF%BE/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%E4%B8%8E%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F/2%20%E9%87%8F%E5%AD%90%E6%AF%94%E7%89%B9%E4%B8%8E%E9%87%8F%E5%AD%90%E9%97%A8/">
+      
+      
+        <link rel="prev" href="../1%20%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/">
+      
+      
+        <link rel="next" href="../3%E9%87%8F%E5%AD%90%E6%B5%8B%E9%87%8F%E4%B8%8E%E9%87%8F%E5%AD%90%E5%9B%BE%E7%81%B5%E6%9C%BA/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>量子比特与量子门 - wft 的笔记本</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="wft 的笔记本" class="md-header__button md-logo" aria-label="wft 的笔记本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            wft 的笔记本
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              量子比特与量子门
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../AI/AI%E5%85%A5%E9%97%A8/Regression/" class="md-tabs__link">
+          
+  
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../others/PyTorch/CNN/" class="md-tabs__link">
+          
+  
+  
+  Others
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../oop/oop/" class="md-tabs__link">
+          
+  
+  
+  专业课
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E8%AF%AD%E8%A8%80%E7%B1%BB/%E8%A5%BF%E7%8F%AD%E7%89%99%E8%AF%AD/1%E4%BA%BA%E7%A7%B0%E4%BB%A3%E8%AF%8D/" class="md-tabs__link">
+          
+  
+  
+  语言类
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E9%9D%A2%E8%AF%95/C%2B%2B/" class="md-tabs__link">
+          
+  
+  
+  面试
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="wft 的笔记本" class="md-nav__button md-logo" aria-label="wft 的笔记本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    wft 的笔记本
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI入门
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            AI入门
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AI/AI%E5%85%A5%E9%97%A8/Regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Regression
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    论文
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            论文
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AI/%E8%AE%BA%E6%96%87/DeepseekR1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DeepseekR1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AI/%E8%AE%BA%E6%96%87/GOT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GoT: Effective Graph-of-Thought Reasoning in Language Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AI/%E8%AE%BA%E6%96%87/Prompter%20Says%20A%20Linguistic%20Approach%20Attacks%20Against%20Large-Language%20Models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    "Prompter Says": A Linguistic Approach Attacks Against Large-Language Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Others
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Others
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PyTorch
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            PyTorch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/PyTorch/CNN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    卷积神经网络
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/PyTorch/LinearRegression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    线性回归
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/PyTorch/Optim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    torch.optim 优化器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/PyTorch/PyTorch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PyTorch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/PyTorch/RNN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    循环神经网络 RNN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/PyTorch/torch.utils.data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    数据处理与加载
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/PyTorch/transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    transformer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/PyTorch/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    神经网络
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    专业课
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            专业课
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Oop
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Oop
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oop/oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sys3
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sys3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sys3/Chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sys3/Chapter2%20Instruction-Level%20Parallelism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 2: Instruction-Level Parallelism
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sys3/Chapter3%20Memory%20Hierarachy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter3 Memory Hierarachy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    信息安全原理与数学基础
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            信息安全原理与数学基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%A6%82%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    概统
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%A6%BB%E6%95%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    离散
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    数据库系统
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            数据库系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/Part1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/Part2%20Intro%20to%20Relational%20Model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 2: Intro to Relational Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/Part3%20Intro%20to%20SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 3: Introduntion to SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/Part4%20Intermediate%20SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part4: Intermediate SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/Part5%20Advanced%20SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part5: Advanced SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/Part6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 6: Database Design using the E-R Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    计算机网络
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            计算机网络
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/2%20Regulations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    规则与协议
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3%20%E7%89%A9%E7%90%86%E5%B1%82/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物理层传输 (The Physical Layer Transmission)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%BC%A9%E5%86%99%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    缩写汇总
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    软件安全原理和实践
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            软件安全原理和实践
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%BD%AF%E4%BB%B6%E5%AE%89%E5%85%A8%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/1%20Linux%20%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux 系统安全基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%BD%AF%E4%BB%B6%E5%AE%89%E5%85%A8%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/2%20Set-UID%E7%89%B9%E6%9D%83%E7%A8%8B%E5%BA%8F%E5%8E%9F%E7%90%86%E5%8F%8A%E6%94%BB%E5%87%BB%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Set-UID 特权程序原理与攻击
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%BD%AF%E4%BB%B6%E5%AE%89%E5%85%A8%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/3%20%E9%80%9A%E8%BF%87%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%AE%9E%E7%8E%B0%E6%94%BB%E5%87%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    通过环境变量实现攻击
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    量子计算理论基础与软件系统
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            量子计算理论基础与软件系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1%20%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    量子计算与线性代数核心概念笔记
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    量子比特与量子门
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    量子比特与量子门
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 量子比特
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 量子比特">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子术语与线性代数术语对照
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子比特的物理实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#divincenzo" class="md-nav__link">
+    <span class="md-ellipsis">
+      DiVincenzo 判据 (量子计算机实现条件)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子态基本概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子比特的叠加态
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子比特的基矢态
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子比特的向量表示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子态矢内积
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子态的坍缩
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantum-no-cloning-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      不可克隆原理 (Quantum No-Cloning Theorem)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bloch" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子比特的几何表示 (Bloch 球)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      小结: 量子信息的无限与有限
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 多量子比特
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 多量子比特">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      多量子比特叠加态
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tensor-product-kronecker-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      张量积 (Tensor Product / Kronecker Product)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      判断是否纠缠
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      复合系统与多比特门
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子优势案例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bell-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      贝尔态 (Bell States)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 单量子门
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 单量子门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pauli-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      引入: 量子非门 (Pauli-X 门)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hadamard-h" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hadamard 门 (H 门)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pauli-pauli-x-y-z" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pauli 矩阵和 Pauli 门 (X, Y, Z)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子门与矩阵乘法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      厄米矩阵和酉矩阵 (重复，此处为总结)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p-s-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      相位旋转门 (P, S, T 门)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r_xtheta-r_ytheta-r_ztheta" class="md-nav__link">
+    <span class="md-ellipsis">
+      参数旋转门 (\(R_x(\theta), R_y(\theta), R_z(\theta)\))
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      单量子比特操作分解
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 多量子门
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 多量子门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xorcnot" class="md-nav__link">
+    <span class="md-ellipsis">
+      从XOR门到CNOT门
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cnot" class="md-nav__link">
+    <span class="md-ellipsis">
+      基于CNOT门制备贝尔态
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantum-teleportation" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子隐形传态 (Quantum Teleportation)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swapcswap" class="md-nav__link">
+    <span class="md-ellipsis">
+      SWAP门及CSWAP门
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swap" class="md-nav__link">
+    <span class="md-ellipsis">
+      SWAP操作在硬件上的应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toffoli-ccnot-ccx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toffoli门 (CCNOT / CCX 门)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子计算的并行性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deutsch" class="md-nav__link">
+    <span class="md-ellipsis">
+      从并行性到Deutsch算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oracle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oracle_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oracle线路设计与简化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子电路部署流程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3%E9%87%8F%E5%AD%90%E6%B5%8B%E9%87%8F%E4%B8%8E%E9%87%8F%E5%AD%90%E5%9B%BE%E7%81%B5%E6%9C%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    量子测量与量子图灵机
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    隐私计算与数据合规
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            隐私计算与数据合规
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%90%88%E8%A7%84/%E5%BC%95%E8%A8%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1: 引言
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%90%88%E8%A7%84/%E9%9D%A2%E5%90%91%E6%9C%9F%E6%9C%AB%E7%9A%84%E8%80%83%E7%BA%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    考试大纲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    语言类
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            语言类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    西班牙语
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            西班牙语
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%AF%AD%E8%A8%80%E7%B1%BB/%E8%A5%BF%E7%8F%AD%E7%89%99%E8%AF%AD/1%E4%BA%BA%E7%A7%B0%E4%BB%A3%E8%AF%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    人称代词
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%AF%AD%E8%A8%80%E7%B1%BB/%E8%A5%BF%E7%8F%AD%E7%89%99%E8%AF%AD/2%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    语法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%AF%AD%E8%A8%80%E7%B1%BB/%E8%A5%BF%E7%8F%AD%E7%89%99%E8%AF%AD/3%E4%B9%A6%E5%90%8E%E9%A2%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    习题
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%AF%AD%E8%A8%80%E7%B1%BB/%E8%A5%BF%E7%8F%AD%E7%89%99%E8%AF%AD/4%E8%AF%8D%E6%B1%87%E8%A1%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    词汇表
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    面试
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            面试
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%9D%A2%E8%AF%95/C%2B%2B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C++
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%9D%A2%E8%AF%95/hackthon2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hackthon2025
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 量子比特
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 量子比特">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子术语与线性代数术语对照
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子比特的物理实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#divincenzo" class="md-nav__link">
+    <span class="md-ellipsis">
+      DiVincenzo 判据 (量子计算机实现条件)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子态基本概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子比特的叠加态
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子比特的基矢态
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子比特的向量表示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子态矢内积
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子态的坍缩
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantum-no-cloning-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      不可克隆原理 (Quantum No-Cloning Theorem)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bloch" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子比特的几何表示 (Bloch 球)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      小结: 量子信息的无限与有限
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 多量子比特
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 多量子比特">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      多量子比特叠加态
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tensor-product-kronecker-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      张量积 (Tensor Product / Kronecker Product)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      判断是否纠缠
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      复合系统与多比特门
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子优势案例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bell-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      贝尔态 (Bell States)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 单量子门
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 单量子门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pauli-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      引入: 量子非门 (Pauli-X 门)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hadamard-h" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hadamard 门 (H 门)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pauli-pauli-x-y-z" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pauli 矩阵和 Pauli 门 (X, Y, Z)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子门与矩阵乘法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      厄米矩阵和酉矩阵 (重复，此处为总结)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p-s-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      相位旋转门 (P, S, T 门)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r_xtheta-r_ytheta-r_ztheta" class="md-nav__link">
+    <span class="md-ellipsis">
+      参数旋转门 (\(R_x(\theta), R_y(\theta), R_z(\theta)\))
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      单量子比特操作分解
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 多量子门
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 多量子门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xorcnot" class="md-nav__link">
+    <span class="md-ellipsis">
+      从XOR门到CNOT门
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cnot" class="md-nav__link">
+    <span class="md-ellipsis">
+      基于CNOT门制备贝尔态
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantum-teleportation" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子隐形传态 (Quantum Teleportation)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swapcswap" class="md-nav__link">
+    <span class="md-ellipsis">
+      SWAP门及CSWAP门
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swap" class="md-nav__link">
+    <span class="md-ellipsis">
+      SWAP操作在硬件上的应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toffoli-ccnot-ccx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toffoli门 (CCNOT / CCX 门)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子计算的并行性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deutsch" class="md-nav__link">
+    <span class="md-ellipsis">
+      从并行性到Deutsch算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oracle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oracle_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oracle线路设计与简化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子电路部署流程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">量子比特与量子门<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. 量子比特<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">量子术语与线性代数术语对照<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">量子力学术语</th>
+<th style="text-align: left;">线性代数术语</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">态矢量 (State Vector)</td>
+<td style="text-align: left;">向量 (Vector)</td>
+</tr>
+<tr>
+<td style="text-align: left;">本征态 (Eigenstate)</td>
+<td style="text-align: left;">特征向量 (Eigenvector)</td>
+</tr>
+<tr>
+<td style="text-align: left;">本征值 (Eigenvalue)</td>
+<td style="text-align: left;">特征值 (Eigenvalue)</td>
+</tr>
+<tr>
+<td style="text-align: left;">右矢 (ket) <span class="arithmatex">\(\|a \rangle\)</span></td>
+<td style="text-align: left;">列向量 (Column Vector)</td>
+</tr>
+<tr>
+<td style="text-align: left;">左矢 (bra) <span class="arithmatex">\(\langle a\|\)</span></td>
+<td style="text-align: left;">行向量 (Row Vector)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(\langle a\|b\rangle\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 向量的内积 (Inner Product)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(\|a\rangle\langle b\|\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 的外积构成的投影矩阵</td>
+</tr>
+<tr>
+<td style="text-align: left;">基态 (Ground State)</td>
+<td style="text-align: left;">最小本征态 (Eigenstate with Lowest Eigenvalue)</td>
+</tr>
+<tr>
+<td style="text-align: left;">算符 (Operator)</td>
+<td style="text-align: left;">矩阵 (Matrix)</td>
+</tr>
+<tr>
+<td style="text-align: left;">线性算符 (Linear Operator)</td>
+<td style="text-align: left;">线性变换 (Linear Transformation)</td>
+</tr>
+<tr>
+<td style="text-align: left;">幺正 (酉) 算符 (Unitary Operator)</td>
+<td style="text-align: left;">正交矩阵 (Orthogonal Matrix)</td>
+</tr>
+<tr>
+<td style="text-align: left;">厄米矩阵 (Hermitian Matrix)</td>
+<td style="text-align: left;">自伴矩阵 (Self-adjoint Matrix)</td>
+</tr>
+<tr>
+<td style="text-align: left;">线性叠加原理 (Principle of Superposition)</td>
+<td style="text-align: left;">线性组合性质 (Linearity)</td>
+</tr>
+<tr>
+<td style="text-align: left;">投影算符 (Projection Operator)</td>
+<td style="text-align: left;">投影矩阵 (Projection Matrix)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">幺正矩阵与厄米矩阵</p>
+<ul>
+<li><strong>正交矩阵</strong> (实数): <span class="arithmatex">\(AA^T = I\)</span></li>
+<li><strong>幺正矩阵</strong> (复数): <span class="arithmatex">\(UU^\dagger = I\)</span> (其中 <span class="arithmatex">\(\dagger\)</span> 是共轭转置)<ul>
+<li>在量子计算中至关重要，因其性质保证了量子态经过幺正算子后仍是一个有效的量子态。</li>
+</ul>
+</li>
+<li><strong>厄米矩阵</strong> (复数): <span class="arithmatex">\(H = H^\dagger\)</span><ul>
+<li>其性质保证了本征值是实数，本征向量是正交的，这确保了量子系统的物理量是可观测的。</li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="_3">量子比特的物理实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>叠加特性</strong>: 电子自旋叠加、能量态叠加等物理过程的抽象就是量子比特的叠加特性。<ul>
+<li>电子自旋向上和自旋向下存在叠加。</li>
+<li>原子的基态和激发态也存在叠加。</li>
+<li>经典微电子电路的CMOS开关的开闭承载了1比特的信息。</li>
+</ul>
+</li>
+</ul>
+<h3 id="divincenzo">DiVincenzo 判据 (量子计算机实现条件)<a class="headerlink" href="#divincenzo" title="Permanent link">&para;</a></h3>
+<ol>
+<li>具有可操控的量子比特，并具有可扩充性（可调控的二能级系统）。</li>
+<li>能够将量子比特的状态初始化为简单基准状态（设置 <span class="arithmatex">\(|0\rangle\)</span> 态或 <span class="arithmatex">\(|1\rangle\)</span> 态）。</li>
+<li>具有长相关退相干时间（确保充足的时间有效完成计算任务）。</li>
+<li>具有一组“通用”量子门（确保能够满足所有的计算任务需求）。</li>
+<li>能够测量特定量子比特（完成量子信息到经典信息的转换）。</li>
+</ol>
+<h3 id="_4">量子态基本概念<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>量子叠加态 (Superposition)</strong>: 量子比特 (Qubits) 可以同时代表1和0的多种可能性组合。研究人员使用精密激光或微波束操纵，使量子比特处于叠加态。</li>
+<li><strong>量子纠缠态 (Entanglement)</strong>: 一对量子比特对的两个量子比特存在于单个量子状态。改变其中一个量子比特的状态时，另一个量子比特的状态会瞬间改变。</li>
+</ul>
+<h3 id="_5">量子比特的叠加态<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>量子比特</strong>: 存在两个可能的状态 <span class="arithmatex">\(|0\rangle\)</span> 和 <span class="arithmatex">\(|1\rangle\)</span>。与经典比特不同，量子比特可以处于 <span class="arithmatex">\(|0\rangle\)</span> 和 <span class="arithmatex">\(|1\rangle\)</span> 以外的状态，是状态的线性组合，称为叠加态。</li>
+<li><strong>表示</strong>: <span class="arithmatex">\(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\)</span><ul>
+<li><span class="arithmatex">\(\alpha\)</span> 和 <span class="arithmatex">\(\beta\)</span> 是复数 (振幅)，描述量子比特的叠加状态。</li>
+<li><span class="arithmatex">\(|0\rangle\)</span> 和 <span class="arithmatex">\(|1\rangle\)</span> 是基矢态，构成二维复向量空间的正交基。</li>
+</ul>
+</li>
+<li><strong>归一化条件</strong>: <span class="arithmatex">\(|\alpha|^2 + |\beta|^2 = 1\)</span><ul>
+<li>量子比特的状态是二维复向量空间中的单位向量。</li>
+<li>向量各分量为复数，欧几里得范数为1。</li>
+</ul>
+</li>
+</ul>
+<h3 id="_6">量子比特的基矢态<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>除了 <span class="arithmatex">\(|0\rangle\)</span> 和 <span class="arithmatex">\(|1\rangle\)</span>，任意两个单位正交基都可以作为量子态的基矢态。</li>
+<li><strong>常用正交基</strong>:<ul>
+<li><span class="arithmatex">\(|+\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)\)</span></li>
+<li><span class="arithmatex">\(|-\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)\)</span></li>
+</ul>
+</li>
+<li>任意量子态都可以表示为这组基的线性组合: <span class="arithmatex">\(|\psi\rangle = \alpha|+\rangle + \beta|-\rangle\)</span></li>
+</ul>
+<h3 id="_7">量子比特的向量表示<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="arithmatex">\(|0\rangle\)</span> 和 <span class="arithmatex">\(|1\rangle\)</span> 向量形式: <span class="arithmatex">\(|0\rangle = \begin{bmatrix} 1 \\ 0 \end{bmatrix}\)</span>, <span class="arithmatex">\(|1\rangle = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\)</span></li>
+<li><span class="arithmatex">\(|+\rangle\)</span> 和 <span class="arithmatex">\(|-\rangle\)</span> 向量形式: <span class="arithmatex">\(|+\rangle = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span>, <span class="arithmatex">\(|-\rangle = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ -1 \end{bmatrix}\)</span></li>
+<li>任意量子态 <span class="arithmatex">\(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\)</span> 向量形式: <span class="arithmatex">\(|\psi\rangle = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}\)</span></li>
+</ul>
+<h3 id="_8">量子态矢内积<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Bra-ket 表示法</strong>: <span class="arithmatex">\(| \psi \rangle\)</span> 表示列向量，<span class="arithmatex">\(\langle \psi |\)</span> 表示其共轭转置行向量 <span class="arithmatex">\(\begin{bmatrix} \alpha^* &amp; \beta^* \end{bmatrix}\)</span>。</li>
+<li><strong>内积</strong>: <span class="arithmatex">\(\langle \psi | \psi \rangle = \alpha^* \alpha + \beta^* \beta = 1\)</span> (标量)</li>
+<li><strong>一般定义</strong>: <span class="arithmatex">\(\langle a|b \rangle = a_0^* b_0 + a_1^* b_1 + \dots + a_n^* b_n\)</span></li>
+<li><strong>正交</strong>: 两个向量的内积为0。</li>
+<li><strong>欧几里得范数</strong>: <span class="arithmatex">\(|||v\rangle|| = \sqrt{\langle v|v \rangle}\)</span></li>
+</ul>
+<h3 id="_9">量子态的坍缩<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>当测量量子态时，会发生量子态的坍缩 (投影)。</li>
+<li>对于 <span class="arithmatex">\(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\)</span>，将以 <span class="arithmatex">\(|\alpha|^2\)</span> 的概率得到 <span class="arithmatex">\(|0\rangle\)</span> 态，以 <span class="arithmatex">\(|\beta|^2\)</span> 的概率得到 <span class="arithmatex">\(|1\rangle\)</span> 态。</li>
+<li><strong>归一化条件</strong>: <span class="arithmatex">\(|\alpha|^2 + |\beta|^2 = 1\)</span>。</li>
+</ul>
+<h3 id="quantum-no-cloning-theorem">不可克隆原理 (Quantum No-Cloning Theorem)<a class="headerlink" href="#quantum-no-cloning-theorem" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>核心思想</strong>: 不能创建一个完美的克隆 (拷贝) 任意未知的量子态。</li>
+<li><strong>数学表示</strong>: 不存在一个线性算符 <span class="arithmatex">\(U\)</span>，可以将量子态 <span class="arithmatex">\(|\psi\rangle\)</span> 映射到相应的复制态 <span class="arithmatex">\(|\psi\rangle|\psi\rangle\)</span>。</li>
+<li><strong>意义</strong>: 无法通过制作副本对量子态进行重复测量。</li>
+</ul>
+<h3 id="bloch">量子比特的几何表示 (Bloch 球)<a class="headerlink" href="#bloch" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>可视化</strong>: 单量子比特的量子态可以可视化在一个球面中，称为 <strong>Bloch 球</strong>。</li>
+<li><strong>表示</strong>: <span class="arithmatex">\(|\psi\rangle = \cos(\frac{\theta}{2})|0\rangle + e^{i\varphi} \sin(\frac{\theta}{2})|1\rangle\)</span><ul>
+<li><span class="arithmatex">\(\theta\)</span> 和 <span class="arithmatex">\(\varphi\)</span> 是球坐标下的分量，且量子态的欧几里得范数为1。</li>
+</ul>
+</li>
+<li><strong>全局相位</strong>: 量子态乘以一个单位模长的复数，只会引入一个全局相位，不会带来任何可观测的效应。<ul>
+<li><span class="arithmatex">\(|\psi'\rangle = e^{i\xi}|\psi\rangle\)</span> 与 <span class="arithmatex">\(|\psi\rangle\)</span> 物理等价。</li>
+</ul>
+</li>
+<li><strong>注意</strong>: Bloch 球只能可视化 <strong>单个量子比特</strong> 的状态。</li>
+</ul>
+<p><img alt="alt text" src="../image.png" /></p>
+<h3 id="_10">小结: 量子信息的无限与有限<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>无限</strong>: 一个量子比特的状态可以是Bloch球上的任意一点，复系数可以无限拓展，理论上一个量子比特的信息容量足以存储下一本书！</li>
+<li><strong>有限</strong>: 量子力学的基本假设限定了量子比特被测量后便会坍缩，单次测量只能获取一比特的信息。只有在测量了无数多个“完全相同”的量子比特后，才能确定 <span class="arithmatex">\(\alpha\)</span> 和 <span class="arithmatex">\(\beta\)</span>。</li>
+<li><strong>隐含信息</strong>: 在一个量子比特的状态里，大自然隐藏了大量的“隐含信息”，这些信息会随着量子比特数的增长而指数增长。</li>
+</ul>
+<hr />
+<h2 id="2">2. 多量子比特<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="_11">多量子比特叠加态<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>两个量子比特</strong>: 有四种基本状态 <span class="arithmatex">\(|00\rangle, |01\rangle, |10\rangle, |11\rangle\)</span>。</li>
+<li><strong>叠加态</strong>: 可以是这些基本态的叠加: <span class="arithmatex">\(|\psi\rangle = \alpha_{00}|00\rangle + \alpha_{01}|01\rangle + \alpha_{10}|10\rangle + \alpha_{11}|11\rangle\)</span></li>
+<li><strong>测量</strong>: 测量量子系统，以 <span class="arithmatex">\(|\alpha_x|^2\)</span> 的概率得到 <span class="arithmatex">\(|x\rangle\)</span> 态。</li>
+<li><strong>归一化</strong>: <span class="arithmatex">\(\sum_{x \in \{0,1\}^2} |\alpha_x|^2 = 1\)</span>。</li>
+<li><strong>局部测量与坍缩</strong>: 测量其中低位量子比特得到0，则状态坍缩并归一化。</li>
+<li><strong>N个量子比特</strong>: <span class="arithmatex">\(2^N\)</span> 种基本状态。</li>
+</ul>
+<h3 id="tensor-product-kronecker-product">张量积 (Tensor Product / Kronecker Product)<a class="headerlink" href="#tensor-product-kronecker-product" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>定义</strong>: 用于组合向量空间的运算，将两个向量空间的向量合并成一个更大的向量空间。</li>
+<li><strong>表示</strong>: <span class="arithmatex">\(V \otimes W\)</span>。结果是一个新的向量空间，其维度等于 <span class="arithmatex">\(V\)</span> 和 <span class="arithmatex">\(W\)</span> 的维度的乘积。</li>
+<li>
+<p><strong>示例</strong>:</p>
+<ul>
+<li>向量表示: <span class="arithmatex">\(\begin{bmatrix} \alpha \\ \beta \end{bmatrix} \otimes \begin{bmatrix} \gamma \\ \delta \end{bmatrix} = \begin{bmatrix} \alpha\gamma \\ \alpha\delta \\ \beta\gamma \\ \beta\delta \end{bmatrix}\)</span></li>
+<li><strong>作用</strong>: 获得多个量子态的复合量子态，提供多量子比特的数学表示方法。</li>
+</ul>
+</li>
+</ul>
+<h3 id="_12">判断是否纠缠<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>无关/可分态</strong>: 如果一个多量子比特系统可以分解为多个单量子比特的张量积。<ul>
+<li>例如: <span class="arithmatex">\(\frac{1}{2}(|00\rangle + |01\rangle - |10\rangle - |11\rangle) = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle) \otimes \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)\)</span></li>
+<li>这意味着第二个比特的状态与第一个比特无关。</li>
+</ul>
+</li>
+<li><strong>不可分/纠缠态</strong>: 如果无法分解成多个单量子比特的张量积。<ul>
+<li>例如: <span class="arithmatex">\(\frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)\)</span></li>
+<li>第一个比特测得0，第二个比特一定为0；第一个比特测得1，第二个比特一定为1。</li>
+</ul>
+</li>
+</ul>
+<h3 id="_13">复合系统与多比特门<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>编号与绘制</strong>: 态矢量中的每个量子比特按从左到右顺序编号，并在量子电路图中从上至下绘制。</li>
+<li><strong>多比特门</strong>: 若将两个单量子门视作一个整体，可以通过张量积的形式构成一个双量子门。</li>
+</ul>
+<h3 id="_14">量子优势案例<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>量子计算机可以通过同时尝试所有可能的“钥匙”来一次性解决问题 (如开锁)，而经典计算机需要依次尝试。</li>
+<li>这种优势源于量子叠加态和量子纠缠态的特性。</li>
+</ul>
+<h3 id="bell-states">贝尔态 (Bell States)<a class="headerlink" href="#bell-states" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>定义</strong>: 双量子比特系统中重要的纠缠态。</li>
+<li><strong>四种贝尔态</strong>:<ul>
+<li><span class="arithmatex">\(|\phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)\)</span></li>
+<li><span class="arithmatex">\(|\phi^-\rangle = \frac{1}{\sqrt{2}}(|00\rangle - |11\rangle)\)</span></li>
+<li><span class="arithmatex">\(|\psi^+\rangle = \frac{1}{\sqrt{2}}(|01\rangle + |10\rangle)\)</span></li>
+<li><span class="arithmatex">\(|\psi^-\rangle = \frac{1}{\sqrt{2}}(|01\rangle - |10\rangle)\)</span></li>
+</ul>
+</li>
+<li><strong>贝尔基</strong>: 这四个贝尔态构成一个基底，任何双量子比特的量子态都可以表示为它们的线性组合。</li>
+</ul>
+<hr />
+<h2 id="3">3. 单量子门<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="pauli-x">引入: 量子非门 (Pauli-X 门)<a class="headerlink" href="#pauli-x" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>经典X门 (NOT门)</strong>: 翻转电平信号 (0态和1态交换)。</li>
+<li><strong>量子X门</strong>: 作用是线性的，实现 <span class="arithmatex">\(|0\rangle \rightarrow |1\rangle\)</span> 的转变，互换复系数。</li>
+<li><strong>矩阵表示</strong>: <span class="arithmatex">\(X = \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{bmatrix}\)</span></li>
+<li><strong>结论</strong>: 单量子比特的量子门可以由 <span class="arithmatex">\(2 \times 2\)</span> 的矩阵给出，其矩阵分量决定了量子门的行为。</li>
+</ul>
+<h3 id="hadamard-h">Hadamard 门 (H 门)<a class="headerlink" href="#hadamard-h" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>基础量子门</strong>: 将 <span class="arithmatex">\(|0\rangle\)</span> 和 <span class="arithmatex">\(|1\rangle\)</span> 转变为叠加态。</li>
+<li><strong>矩阵表示</strong>: <span class="arithmatex">\(H = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{bmatrix}\)</span></li>
+<li><strong>作用</strong>:<ul>
+<li><span class="arithmatex">\(H|0\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle) = |+\rangle\)</span></li>
+<li><span class="arithmatex">\(H|1\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle) = |-\rangle\)</span></li>
+</ul>
+</li>
+<li><strong>几何意义</strong>: 将量子态从z基到x基的转变；或在Bloch球上先绕z轴转180度再绕y轴转90度；或围绕x-z轴中界线旋转180度。</li>
+</ul>
+<h3 id="pauli-pauli-x-y-z">Pauli 矩阵和 Pauli 门 (X, Y, Z)<a class="headerlink" href="#pauli-pauli-x-y-z" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Pauli-X 矩阵</strong>: <span class="arithmatex">\(\sigma_x = \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{bmatrix}\)</span></li>
+<li><strong>Pauli-Y 矩阵</strong>: <span class="arithmatex">\(\sigma_y = \begin{bmatrix} 0 &amp; -i \\ i &amp; 0 \end{bmatrix}\)</span></li>
+<li><strong>Pauli-Z 矩阵</strong>: <span class="arithmatex">\(\sigma_z = \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{bmatrix}\)</span></li>
+<li><strong>作用</strong>:<ul>
+<li>X门: 实现 <span class="arithmatex">\(|0\rangle \leftrightarrow |1\rangle\)</span> 转变，相当于绕x轴旋转 <span class="arithmatex">\(\pi\)</span> 角度。</li>
+<li>Y门、Z门: 分别让量子态绕y轴和z轴旋转 <span class="arithmatex">\(\pi\)</span> 角度。</li>
+</ul>
+</li>
+</ul>
+<h3 id="_15">量子门与矩阵乘法<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>量子计算本质</strong>: 酉矩阵计算！</li>
+<li><strong>表示</strong>: <span class="arithmatex">\(V' = UV\)</span> (输出态 = 演化矩阵 <span class="arithmatex">\(\cdot\)</span> 输入态)</li>
+<li><strong>可逆性</strong>: <span class="arithmatex">\(V = U^{-1}V'\)</span></li>
+<li><strong>正则性</strong>: <span class="arithmatex">\(||U|| = 1\)</span></li>
+<li><strong>量子门的例子</strong>: Hadamard (H), Pauli-Y (Y), Pauli-Z (Z), CNOT。</li>
+</ul>
+<h3 id="_16">厄米矩阵和酉矩阵 (重复，此处为总结)<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>量子门的矩阵限制</strong>: 只有酉矩阵才能用作表示一个量子门！</li>
+<li><strong>厄米矩阵 (<span class="arithmatex">\(A=A^\dagger\)</span>)</strong>: 其性质保证了本征值是实数，本征向量是正交的，这确保了量子系统的物理量是可观测的。</li>
+<li><strong>酉矩阵 (<span class="arithmatex">\(UU^\dagger=I\)</span>)</strong>: 其性质保证了作用在量子态上得到的结果仍然满足归一化条件 (合法量子态)；保持内积不变 (保持态矢量间的正交性质)。</li>
+</ul>
+<h3 id="p-s-t">相位旋转门 (P, S, T 门)<a class="headerlink" href="#p-s-t" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>作用</strong>: 引入特定的相位因子，改变量子态的相对相位，但不改变其概率分布。</li>
+<li><strong>应用</strong>: 量子相位估计、量子傅里叶变换等。</li>
+<li><strong>与Pauli门区别</strong>: 不涉及量子比特的旋转操作，而是旋转相位。</li>
+<li><strong>常见门</strong>:<ul>
+<li><strong>P门</strong>: <span class="arithmatex">\(P = \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; e^{i\varphi} \end{bmatrix}\)</span> (将量子比特的相位进行旋转，<span class="arithmatex">\(\varphi\)</span> 为输入参数)</li>
+<li><strong>S门</strong>: <span class="arithmatex">\(S = \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; i \end{bmatrix}\)</span> (P门的特例，<span class="arithmatex">\(\varphi = \pi/2\)</span>)</li>
+<li><strong>T门</strong>: <span class="arithmatex">\(T = \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; e^{i\pi/4} \end{bmatrix}\)</span> (P门的特例，<span class="arithmatex">\(\varphi = \pi/4\)</span>)</li>
+</ul>
+</li>
+</ul>
+<p><img alt="alt text" src="../image-1.png" /></p>
+<h3 id="r_xtheta-r_ytheta-r_ztheta">参数旋转门 (<span class="arithmatex">\(R_x(\theta), R_y(\theta), R_z(\theta)\)</span>)<a class="headerlink" href="#r_xtheta-r_ytheta-r_ztheta" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>基本门</strong>: 允许根据给定参数执行量子态的旋转操作。</li>
+<li><strong>常见门</strong>: 绕X轴、Y轴和Z轴的旋转门，<span class="arithmatex">\(\theta\)</span> 是旋转角度。<ul>
+<li><span class="arithmatex">\(R_x(\theta) = \begin{bmatrix} \cos(\frac{\theta}{2}) &amp; -i\sin(\frac{\theta}{2}) \\ -i\sin(\frac{\theta}{2}) &amp; \cos(\frac{\theta}{2}) \end{bmatrix}\)</span></li>
+<li><span class="arithmatex">\(R_y(\theta) = \begin{bmatrix} \cos(\frac{\theta}{2}) &amp; -\sin(\frac{\theta}{2}) \\ \sin(\frac{\theta}{2}) &amp; \cos(\frac{\theta}{2}) \end{bmatrix}\)</span></li>
+<li><span class="arithmatex">\(R_z(\theta) = \begin{bmatrix} e^{-i\theta/2} &amp; 0 \\ 0 &amp; e^{i\theta/2} \end{bmatrix}\)</span></li>
+</ul>
+</li>
+<li><strong>应用</strong>: 量子电路设计、量子机器学习 (如量子神经网络、变分量子算法)。</li>
+</ul>
+<h3 id="_17">单量子比特操作分解<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>问题</strong>: 任何2x2的酉矩阵都可以表示一个量子门，但酉矩阵有无穷多个，需要制造这么多门吗？</li>
+<li><strong>答案</strong>: 不需要。任意一个2x2的酉矩阵都可以分解为:
+    <span class="arithmatex">\(U = e^{i\alpha} \begin{bmatrix} e^{-i\beta/2} &amp; 0 \\ 0 &amp; e^{i\beta/2} \end{bmatrix} \begin{bmatrix} \cos(\frac{\gamma}{2}) &amp; -\sin(\frac{\gamma}{2}) \\ \sin(\frac{\gamma}{2}) &amp; \cos(\frac{\gamma}{2}) \end{bmatrix} \begin{bmatrix} e^{-i\delta/2} &amp; 0 \\ 0 &amp; e^{i\delta/2} \end{bmatrix}\)</span><ul>
+<li>这个分解可以对任意单比特操作进行精确描述，这意味着只需要有限数量的基本门 (如旋转门和Pauli门) 即可实现任意单比特操作。</li>
+</ul>
+</li>
+</ul>
+<h2 id="4">4. 多量子门<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="xorcnot">从XOR门到CNOT门<a class="headerlink" href="#xorcnot" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>经典XOR门</strong>: “受控非门”；输入A是“控制端”，A为1时，XOR对B施加非门；A为0时，不施加非门。</li>
+<li><strong>量子CNOT门 (Controlled-NOT Gate)</strong>: 一种受控门。<ul>
+<li><strong>控制比特</strong>: 其状态决定目标比特是否翻转。</li>
+<li><strong>目标比特</strong>: 当控制比特为 <span class="arithmatex">\(|1\rangle\)</span> 时翻转，为 <span class="arithmatex">\(|0\rangle\)</span> 时保持不变。</li>
+</ul>
+</li>
+<li><strong>矩阵表示</strong>:
+    <span class="arithmatex">\(CNOT = \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{bmatrix}\)</span> (控制比特为q0，目标比特为q1)</li>
+<li><strong>真值表 (非叠加态)</strong>:
+    | Input (c t) | Output (c t) |
+    | :---------- | :----------- |
+    | 0 0         | 0 0          |
+    | 0 1         | 0 1          |
+    | 1 0         | 1 1          |
+    | 1 1         | 1 0          |</li>
+</ul>
+<h3 id="cnot">基于CNOT门制备贝尔态<a class="headerlink" href="#cnot" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>主要作用</strong>: 制备纠缠态。</li>
+<li><strong>制备 <span class="arithmatex">\(|\phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)\)</span> 的电路</strong>:<ol>
+<li>初始化 q0 和 q1 为 <span class="arithmatex">\(|00\rangle\)</span>。</li>
+<li>对 q0 施加 Hadamard 门 (<span class="arithmatex">\(H\)</span>)，使 q0 处于叠加态。</li>
+<li>对 q0 和 q1 施加 CNOT 门，q0 为控制比特，q1 为目标比特。</li>
+</ol>
+</li>
+<li><strong>结果</strong>:
+    <span class="arithmatex">\(|00\rangle \xrightarrow{H \text{ on } q0} \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)|0\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |10\rangle)\)</span>
+    <span class="arithmatex">\(\xrightarrow{CNOT} \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)\)</span></li>
+</ul>
+<h3 id="quantum-teleportation">量子隐形传态 (Quantum Teleportation)<a class="headerlink" href="#quantum-teleportation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>目的</strong>: 将一个未知量子态从Alice传输给Bob。</li>
+<li><strong>核心机制</strong>:<ol>
+<li>Alice和Bob共享一个纠缠态 (如贝尔态)。</li>
+<li>Alice拥有待传输的未知量子态 <span class="arithmatex">\(|\psi\rangle\)</span> 和纠缠对中的一个比特。</li>
+<li>Alice对自己的两个比特 (未知态和纠缠态中的一个) 进行操作 (CNOT，Hadamard) 和测量。</li>
+<li>Alice通过 <strong>经典信道</strong> 将测量结果 (2比特经典信息) 发送给Bob。</li>
+<li>Bob根据收到的经典信息对自己的纠缠态比特进行操作 (X, Z 门)，恢复出Alice的未知量子态。</li>
+</ol>
+</li>
+<li><strong>关键点</strong>:<ul>
+<li><strong>不可克隆原理</strong>: Alice无法直接复制未知态。</li>
+<li><strong>经典通信</strong>: 传输过程中需要经典信道，因此量子隐形传态不能突破光速限制。</li>
+<li><strong>不是拷贝</strong>: 最终实现了量子比特的传输，而不是拷贝，因为Alice端的原始量子态在测量后坍缩。</li>
+</ul>
+</li>
+</ul>
+<p><img alt="alt text" src="../image-2.png" /></p>
+<h3 id="swapcswap">SWAP门及CSWAP门<a class="headerlink" href="#swapcswap" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>SWAP门</strong>: 交换两个量子比特的状态。</li>
+<li><strong>矩阵表示</strong>:
+    <span class="arithmatex">\(SWAP = \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}\)</span></li>
+<li><strong>作用</strong>: 生成和操作纠缠态，通过交换可以创建新的纠缠态。</li>
+<li><strong>CSWAP门 (Controlled-SWAP / Fredkin门)</strong>: 给SWAP门添加一个控制比特。当控制比特为 <span class="arithmatex">\(|1\rangle\)</span> 时，执行SWAP操作；否则不变。</li>
+</ul>
+<h3 id="swap">SWAP操作在硬件上的应用<a class="headerlink" href="#swap" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>问题</strong>: 现阶段量子计算机中，逻辑上相邻的量子比特在物理硬件上可能不相邻。</li>
+<li><strong>解决方案</strong>: SWAP操作可以将物理比特“交换”位置，从而实现对不相邻逻辑比特的多比特门操作。</li>
+<li><strong>重要性</strong>: 成为量子线路编译及优化中常用的技术。</li>
+</ul>
+<h3 id="toffoli-ccnot-ccx">Toffoli门 (CCNOT / CCX 门)<a class="headerlink" href="#toffoli-ccnot-ccx" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>三量子比特门</strong>: 在经典计算中执行AND逻辑操作。</li>
+<li><strong>操作</strong>: 如果前两个量子比特 (控制比特) 都处于 <span class="arithmatex">\(|1\rangle\)</span> 态，则对第三个量子比特 (目标比特) 执行非门操作；否则目标比特保持不变。</li>
+<li><strong>矩阵表示</strong>: <span class="arithmatex">\(8 \times 8\)</span> 矩阵，只在最后两行倒数第二列和倒数第一列对调。</li>
+<li><strong>广义形式</strong>: 可以有更多控制比特 (CCCNOT, CCCCNOT 等)。</li>
+</ul>
+<p><img alt="alt text" src="../image-3.png" /></p>
+<h3 id="_18">量子计算的并行性<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>基本特征</strong>: 量子计算机可以同时计算 <span class="arithmatex">\(f(x)\)</span> 在多个 <span class="arithmatex">\(x\)</span> 取值下的函数值。</li>
+<li><strong>映射</strong>: <span class="arithmatex">\(|x, y\rangle \rightarrow |x, y \oplus f(x)\rangle\)</span> (其中 <span class="arithmatex">\(\oplus\)</span> 是模2加运算)。</li>
+<li><strong>原理</strong>: 利用叠加态，在单个电路中同时计算多个函数值。</li>
+<li><strong>实现</strong>: 对输入 <span class="arithmatex">\(x\)</span> 的每个比特施加Hadamard门，将其置于平衡叠加态 <span class="arithmatex">\(\frac{1}{\sqrt{2^n}}\sum_x |x\rangle\)</span>。</li>
+<li><strong>输出</strong>: <span class="arithmatex">\(\frac{1}{\sqrt{2^n}}\sum_x |x\rangle |f(x)\rangle\)</span></li>
+</ul>
+<h3 id="deutsch">从并行性到Deutsch算法<a class="headerlink" href="#deutsch" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>问题</strong>: 经典计算中，要确定一个未知函数 <span class="arithmatex">\(f: \{0,1\} \rightarrow \{0,1\}\)</span> 是常数函数 (<span class="arithmatex">\(f(x)=0\)</span> 或 <span class="arithmatex">\(f(x)=1\)</span>) 还是平衡函数 (<span class="arithmatex">\(f(0) \neq f(1)\)</span>)，至少需要2次查询。量子计算机能否更高效？</li>
+<li><strong>Deutsch算法</strong>:<ol>
+<li><strong>初始化</strong>: 输入比特 <span class="arithmatex">\(|0\rangle\)</span> 和 <span class="arithmatex">\(|1\rangle\)</span>，第二个比特通过Hadamard门得到 <span class="arithmatex">\(|-\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)\)</span>。</li>
+<li><strong>Oracle操作</strong>: 将 <span class="arithmatex">\(U_f\)</span> 作用在 <span class="arithmatex">\(|x\rangle |-\rangle\)</span> 上，利用性质 <span class="arithmatex">\(|x\rangle |y \oplus f(x)\rangle = |x\rangle (-1)^{f(x)} |y\rangle\)</span> 得到 <span class="arithmatex">\(|x\rangle (-1)^{f(x)} |-\rangle\)</span>。</li>
+<li><strong>Hadamard门</strong>: 对第一个比特再施加Hadamard门。</li>
+<li><strong>测量</strong>: 测量第一个比特。</li>
+</ol>
+</li>
+<li><strong>结果</strong>:<ul>
+<li>如果测量结果是 <span class="arithmatex">\(|0\rangle\)</span>，则 <span class="arithmatex">\(f\)</span> 是常数函数。</li>
+<li>如果测量结果是 <span class="arithmatex">\(|1\rangle\)</span>，则 <span class="arithmatex">\(f\)</span> 是平衡函数。</li>
+</ul>
+</li>
+<li><strong>优势</strong>: 只需 <strong>一次计算、一次测量</strong> 即可确定函数 <span class="arithmatex">\(f\)</span> 的全局性质，比经典计算 (至少2次) 更快。</li>
+<li><strong>本质</strong>: 通过精心选择函数以及变换，以优于经典计算的速度获取函数的全局信息。</li>
+</ul>
+<p><img alt="alt text" src="../image-4.png" /></p>
+<h3 id="oracle">Oracle<a class="headerlink" href="#oracle" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>概念</strong>: 在量子计算中，Oracle 代表一个功能，其行为已知 (输入输出关系)，但内部实现细节可能未知，被视为“黑盒”。</li>
+<li><strong>作用</strong>: 输入数据，输出 1 (yes) 或 0 (no)。</li>
+<li><strong>要点</strong>:<ul>
+<li>尽可能快速高效。</li>
+<li>调用Oracle的次数尽可能少，减少算法复杂度。</li>
+</ul>
+</li>
+<li><strong>表示</strong>:<ul>
+<li>经典: <span class="arithmatex">\(f: \{0,1\}^n \rightarrow \{0,1\}\)</span></li>
+<li>量子: <span class="arithmatex">\(f(|\psi\rangle) = |1\rangle\)</span> (如 <span class="arithmatex">\(|\psi\rangle = |1000\rangle\)</span>) 或 <span class="arithmatex">\(|0\rangle\)</span> (其它)。</li>
+</ul>
+</li>
+</ul>
+<h3 id="oracle_1">Oracle线路设计与简化<a class="headerlink" href="#oracle_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>设计</strong>: 包含待判断的函数 <span class="arithmatex">\(f(x)\)</span>，传入量子比特，输出可区分常量或平衡函数的量子比特。<ul>
+<li><span class="arithmatex">\(U_f: |x\rangle |y\rangle \rightarrow |x\rangle |y \oplus f(x)\rangle\)</span></li>
+<li>通常 InputA 固化为 <span class="arithmatex">\(|0\rangle\)</span> 作为辅助输入，OutputA 是真实操作结果。</li>
+</ul>
+</li>
+<li><strong>四种基本函数对应的线路</strong>: <span class="arithmatex">\(f(x)=0\)</span>, <span class="arithmatex">\(f(x)=1\)</span>, <span class="arithmatex">\(f(x)=x\)</span>, <span class="arithmatex">\(f(x)=\neg x\)</span>。</li>
+<li><strong>线路简化规则</strong>:<ol>
+<li><span class="arithmatex">\(H \cdot H = I\)</span> (Hadamard门自身逆)</li>
+<li><span class="arithmatex">\(H \cdot X \cdot H = Z\)</span></li>
+<li>CNOT门的等效变换。</li>
+</ol>
+</li>
+</ul>
+<p><img alt="alt text" src="../image-5.png" /></p>
+<h3 id="_19">量子电路部署流程<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>电路层编译</strong>:<ol>
+<li><strong>量子程序</strong>: 编写量子算法。</li>
+<li><strong>量子电路 (逻辑电路)</strong>: 硬件无关优化。</li>
+<li><strong>量子电路 (物理电路)</strong>: 硬件相关优化，将逻辑门映射到物理比特和它们的连接。</li>
+<li><strong>板卡指令</strong>: 将物理电路转换为量子硬件可执行的指令集。</li>
+</ol>
+</li>
+<li><strong>波形层编译</strong>:<ol>
+<li><strong>脉冲</strong>: 将板卡指令转换为具体的微波脉冲序列。</li>
+<li><strong>量子真机</strong>: 执行脉冲序列。</li>
+</ol>
+</li>
+<li><strong>波形生成</strong>:<ul>
+<li>每种基础门都有对应的波形。</li>
+<li>量子门转换为量子芯片可识别的波形是波形层编译的一部分。</li>
+<li>波形生成过程中量子门的时序不能改变，门的时序同时也是波形的时序。</li>
+<li>两比特量子门每个比特有两段波形，单门波形一般只有一段。</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.tabs", "navigation.top"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

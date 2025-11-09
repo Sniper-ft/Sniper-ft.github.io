@@ -1,0 +1,4000 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://sniper-ft.github.io/%E4%B8%93%E4%B8%9A%E8%AF%BE/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3%20%E7%89%A9%E7%90%86%E5%B1%82/">
+      
+      
+        <link rel="prev" href="../2%20Regulations/">
+      
+      
+        <link rel="next" href="../%E7%BC%A9%E5%86%99%E6%B1%87%E6%80%BB/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>物理层传输 (The Physical Layer Transmission) - wft 的笔记本</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-physical-layer-transmission" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="wft 的笔记本" class="md-header__button md-logo" aria-label="wft 的笔记本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            wft 的笔记本
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              物理层传输 (The Physical Layer Transmission)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../AI/AI%E5%85%A5%E9%97%A8/Regression/" class="md-tabs__link">
+          
+  
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../others/PyTorch/CNN/" class="md-tabs__link">
+          
+  
+  
+  Others
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../oop/oop/" class="md-tabs__link">
+          
+  
+  
+  专业课
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E8%AF%AD%E8%A8%80%E7%B1%BB/%E8%A5%BF%E7%8F%AD%E7%89%99%E8%AF%AD/1%E4%BA%BA%E7%A7%B0%E4%BB%A3%E8%AF%8D/" class="md-tabs__link">
+          
+  
+  
+  语言类
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E9%9D%A2%E8%AF%95/C%2B%2B/" class="md-tabs__link">
+          
+  
+  
+  面试
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="wft 的笔记本" class="md-nav__button md-logo" aria-label="wft 的笔记本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    wft 的笔记本
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI入门
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            AI入门
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AI/AI%E5%85%A5%E9%97%A8/Regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Regression
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    论文
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            论文
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AI/%E8%AE%BA%E6%96%87/DeepseekR1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DeepseekR1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AI/%E8%AE%BA%E6%96%87/GOT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GoT: Effective Graph-of-Thought Reasoning in Language Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AI/%E8%AE%BA%E6%96%87/Prompter%20Says%20A%20Linguistic%20Approach%20Attacks%20Against%20Large-Language%20Models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    "Prompter Says": A Linguistic Approach Attacks Against Large-Language Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Others
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Others
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PyTorch
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            PyTorch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/PyTorch/CNN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    卷积神经网络
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/PyTorch/LinearRegression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    线性回归
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/PyTorch/Optim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    torch.optim 优化器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/PyTorch/PyTorch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PyTorch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/PyTorch/RNN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    循环神经网络 RNN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/PyTorch/torch.utils.data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    数据处理与加载
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/PyTorch/transformer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    transformer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/PyTorch/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    神经网络
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    专业课
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            专业课
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Oop
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Oop
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oop/oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OOP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sys3
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sys3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sys3/Chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sys3/Chapter2%20Instruction-Level%20Parallelism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 2: Instruction-Level Parallelism
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sys3/Chapter3%20Memory%20Hierarachy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter3 Memory Hierarachy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    信息安全原理与数学基础
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            信息安全原理与数学基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%A6%82%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    概统
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%A6%BB%E6%95%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    离散
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    数据库系统
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            数据库系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/Part1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/Part2%20Intro%20to%20Relational%20Model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 2: Intro to Relational Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/Part3%20Intro%20to%20SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 3: Introduntion to SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/Part4%20Intermediate%20SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part4: Intermediate SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/Part5%20Advanced%20SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part5: Advanced SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/Part6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 6: Database Design using the E-R Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    计算机网络
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            计算机网络
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2%20Regulations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    规则与协议
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    物理层传输 (The Physical Layer Transmission)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    物理层传输 (The Physical Layer Transmission)
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#transmission-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、传输介质 (Transmission Media)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、传输介质 (Transmission Media)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-guided-transmission-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 导向传输介质 (Guided Transmission Media)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-twisted-pair" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 双绞线 (Twisted Pair)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 双绞线 (Twisted Pair)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      物理特性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      信号传输
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      传输属性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      分类
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-coaxial-cable" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 同轴电缆 (Coaxial Cable)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-power-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 电力线 (Power Lines)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-fiber-optics" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 光纤 (Fiber Optics)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 光纤 (Fiber Optics)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      光源对比
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      工作原理：全内反射
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      光纤类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      信号损耗与失真
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 光纤电缆与连接
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 光纤电缆与连接">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      光缆结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      光纤连接
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wireless-transmission-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、无线传输介质 (Wireless Transmission Media)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、无线传输介质 (Wireless Transmission Media)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-electromagnetic-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 电磁波谱 (Electromagnetic Spectrum)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-spread-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 扩频技术 (Spread Spectrum)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 扩频技术 (Spread Spectrum)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fhss-frequency-hopping-spread-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      跳频扩频 (FHSS - Frequency Hopping Spread Spectrum)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dsss-direct-sequence-spread-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      直接序列扩频 (DSSS - Direct Sequence Spread Spectrum)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uwb-ultra-wideband" class="md-nav__link">
+    <span class="md-ellipsis">
+      超宽带 (UWB - Ultra-WideBand)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transmission-theories" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、传输理论 (Transmission Theories)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、传输理论 (Transmission Theories)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-radio-transmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 无线电传输 (Radio Transmission)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-microwave-transmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 微波传输 (Microwave Transmission)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-infrared-transmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 红外线传输 (Infrared Transmission)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-light-transmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 光传输 (Light Transmission)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#theoretical-basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、传输理论的数学基础 (Theoretical Basis)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、传输理论的数学基础 (Theoretical Basis)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fourier-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 傅里叶级数 (Fourier Series)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-bandwidth" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 带宽 (Bandwidth)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-rate-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、数据速率限制 (Data Rate Limits)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五、数据速率限制 (Data Rate Limits)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 带宽限制与数据速率
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-nyquists-theorem-" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 奈奎斯特定理 (Nyquist's Theorem) - 无噪声信道
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-shannons-theorem-" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 香农定理 (Shannon's Theorem) - 有噪声信道
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#digital-modulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、数字调制 (Digital Modulation)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="六、数字调制 (Digital Modulation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-line-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 基带传输与线路编码 (Line Codes)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 基带传输与线路编码 (Line Codes)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见线路编码方案
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      解决连续0问题的策略
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-passband-transmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 通带传输 (Passband Transmission)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 通带传输 (Passband Transmission)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本调制方式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constellation-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      高级调制方式：星座图 (Constellation Diagram)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiplexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      七、多路复用 (Multiplexing)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="七、多路复用 (Multiplexing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fdm-frequency-division-multiplexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 频分多路复用 (FDM - Frequency Division Multiplexing)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tdm-time-division-multiplexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 时分多路复用 (TDM - Time Division Multiplexing)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cdm-code-division-multiplexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 码分多路复用 (CDM - Code Division Multiplexing)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-wdm-wavelength-division-multiplexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 波分多路复用 (WDM - Wavelength Division Multiplexing)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      多路复用技术对比
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%BC%A9%E5%86%99%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    缩写汇总
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    软件安全原理和实践
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            软件安全原理和实践
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%BD%AF%E4%BB%B6%E5%AE%89%E5%85%A8%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/1%20Linux%20%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux 系统安全基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%BD%AF%E4%BB%B6%E5%AE%89%E5%85%A8%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/2%20Set-UID%E7%89%B9%E6%9D%83%E7%A8%8B%E5%BA%8F%E5%8E%9F%E7%90%86%E5%8F%8A%E6%94%BB%E5%87%BB%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Set-UID 特权程序原理与攻击
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%BD%AF%E4%BB%B6%E5%AE%89%E5%85%A8%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/3%20%E9%80%9A%E8%BF%87%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%AE%9E%E7%8E%B0%E6%94%BB%E5%87%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    通过环境变量实现攻击
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    量子计算理论基础与软件系统
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            量子计算理论基础与软件系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%E4%B8%8E%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F/1%20%E9%87%8F%E5%AD%90%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    量子计算与线性代数核心概念笔记
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%E4%B8%8E%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F/2%20%E9%87%8F%E5%AD%90%E6%AF%94%E7%89%B9%E4%B8%8E%E9%87%8F%E5%AD%90%E9%97%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    量子比特与量子门
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%E4%B8%8E%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F/3%E9%87%8F%E5%AD%90%E6%B5%8B%E9%87%8F%E4%B8%8E%E9%87%8F%E5%AD%90%E5%9B%BE%E7%81%B5%E6%9C%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    量子测量与量子图灵机
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    隐私计算与数据合规
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            隐私计算与数据合规
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%90%88%E8%A7%84/%E5%BC%95%E8%A8%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1: 引言
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%90%88%E8%A7%84/%E9%9D%A2%E5%90%91%E6%9C%9F%E6%9C%AB%E7%9A%84%E8%80%83%E7%BA%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    考试大纲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    语言类
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            语言类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    西班牙语
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            西班牙语
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%AF%AD%E8%A8%80%E7%B1%BB/%E8%A5%BF%E7%8F%AD%E7%89%99%E8%AF%AD/1%E4%BA%BA%E7%A7%B0%E4%BB%A3%E8%AF%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    人称代词
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%AF%AD%E8%A8%80%E7%B1%BB/%E8%A5%BF%E7%8F%AD%E7%89%99%E8%AF%AD/2%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    语法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%AF%AD%E8%A8%80%E7%B1%BB/%E8%A5%BF%E7%8F%AD%E7%89%99%E8%AF%AD/3%E4%B9%A6%E5%90%8E%E9%A2%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    习题
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%AF%AD%E8%A8%80%E7%B1%BB/%E8%A5%BF%E7%8F%AD%E7%89%99%E8%AF%AD/4%E8%AF%8D%E6%B1%87%E8%A1%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    词汇表
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    面试
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            面试
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%9D%A2%E8%AF%95/C%2B%2B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C++
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%9D%A2%E8%AF%95/hackthon2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hackthon2025
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#transmission-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、传输介质 (Transmission Media)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、传输介质 (Transmission Media)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-guided-transmission-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 导向传输介质 (Guided Transmission Media)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-twisted-pair" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 双绞线 (Twisted Pair)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 双绞线 (Twisted Pair)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      物理特性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      信号传输
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      传输属性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      分类
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-coaxial-cable" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 同轴电缆 (Coaxial Cable)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-power-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 电力线 (Power Lines)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-fiber-optics" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 光纤 (Fiber Optics)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 光纤 (Fiber Optics)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      光源对比
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      工作原理：全内反射
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      光纤类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      信号损耗与失真
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 光纤电缆与连接
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 光纤电缆与连接">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      光缆结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      光纤连接
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wireless-transmission-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、无线传输介质 (Wireless Transmission Media)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、无线传输介质 (Wireless Transmission Media)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-electromagnetic-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 电磁波谱 (Electromagnetic Spectrum)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-spread-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 扩频技术 (Spread Spectrum)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 扩频技术 (Spread Spectrum)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fhss-frequency-hopping-spread-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      跳频扩频 (FHSS - Frequency Hopping Spread Spectrum)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dsss-direct-sequence-spread-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      直接序列扩频 (DSSS - Direct Sequence Spread Spectrum)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uwb-ultra-wideband" class="md-nav__link">
+    <span class="md-ellipsis">
+      超宽带 (UWB - Ultra-WideBand)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transmission-theories" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、传输理论 (Transmission Theories)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、传输理论 (Transmission Theories)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-radio-transmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 无线电传输 (Radio Transmission)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-microwave-transmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 微波传输 (Microwave Transmission)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-infrared-transmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 红外线传输 (Infrared Transmission)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-light-transmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 光传输 (Light Transmission)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#theoretical-basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、传输理论的数学基础 (Theoretical Basis)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、传输理论的数学基础 (Theoretical Basis)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fourier-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 傅里叶级数 (Fourier Series)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-bandwidth" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 带宽 (Bandwidth)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-rate-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、数据速率限制 (Data Rate Limits)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五、数据速率限制 (Data Rate Limits)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 带宽限制与数据速率
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-nyquists-theorem-" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 奈奎斯特定理 (Nyquist's Theorem) - 无噪声信道
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-shannons-theorem-" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 香农定理 (Shannon's Theorem) - 有噪声信道
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#digital-modulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、数字调制 (Digital Modulation)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="六、数字调制 (Digital Modulation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-line-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 基带传输与线路编码 (Line Codes)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 基带传输与线路编码 (Line Codes)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见线路编码方案
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      解决连续0问题的策略
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-passband-transmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 通带传输 (Passband Transmission)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 通带传输 (Passband Transmission)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本调制方式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constellation-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      高级调制方式：星座图 (Constellation Diagram)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiplexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      七、多路复用 (Multiplexing)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="七、多路复用 (Multiplexing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fdm-frequency-division-multiplexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 频分多路复用 (FDM - Frequency Division Multiplexing)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tdm-time-division-multiplexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 时分多路复用 (TDM - Time Division Multiplexing)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cdm-code-division-multiplexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 码分多路复用 (CDM - Code Division Multiplexing)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-wdm-wavelength-division-multiplexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 波分多路复用 (WDM - Wavelength Division Multiplexing)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      多路复用技术对比
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="the-physical-layer-transmission">物理层传输 (The Physical Layer Transmission)<a class="headerlink" href="#the-physical-layer-transmission" title="Permanent link">&para;</a></h1>
+<div class="admonition summary">
+<p class="admonition-title">核心内容</p>
+<ul>
+<li>传输介质 (Transmission Media)</li>
+<li>传输理论 (Transmission Theories)</li>
+</ul>
+</div>
+<hr />
+<h2 id="transmission-media">一、传输介质 (Transmission Media)<a class="headerlink" href="#transmission-media" title="Permanent link">&para;</a></h2>
+<p>传输介质可以分为三大类：</p>
+<ol>
+<li><strong>有线或导向介质 (Guided or Wired)</strong><ul>
+<li>铜缆 (Copper)</li>
+<li>同轴电缆 (Coaxial Cable)</li>
+<li>光纤 (Fiber Optics)</li>
+</ul>
+</li>
+<li><strong>无线介质 (Wireless)</strong><ul>
+<li>地面无线电 (Terrestrial Radio)</li>
+</ul>
+</li>
+<li><strong>卫星 (Satellite)</strong></li>
+</ol>
+<h3 id="1-guided-transmission-media">1. 导向传输介质 (Guided Transmission Media)<a class="headerlink" href="#1-guided-transmission-media" title="Permanent link">&para;</a></h3>
+<ul>
+<li>依赖于物理线缆或导线进行数据传输。</li>
+<li>在频率、带宽、延迟、成本以及安装维护的便捷性方面需要进行权衡。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">持久存储 (Persistent Storage)</p>
+<p>对于海量数据传输，可以采用一种物理方式：
+1.  将数据写入持久性存储设备（如磁带或固态硬盘）。
+2.  通过物理运输将设备送达目的地。
+3.  在目的地机器上读取数据。
+这种方法适用于追求高数据传输速率或极低单位比特传输成本的应用场景。</p>
+</div>
+<hr />
+<h3 id="2-twisted-pair">2. 双绞线 (Twisted Pair)<a class="headerlink" href="#2-twisted-pair" title="Permanent link">&para;</a></h3>
+<p>双绞线是一种常见的有线传输介质。</p>
+<h4 id="_1"><strong>物理特性</strong><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>由两根相互绝缘的铜导线组成，通常直径约为1毫米。</li>
+<li>两根导线以类似DNA分子的螺旋形态绞合在一起。</li>
+<li><strong>优点</strong>：绞合结构可以使不同扭绞处产生的电磁波相互抵消，从而有效减少信号辐射。</li>
+</ul>
+<h4 id="_2"><strong>信号传输</strong><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>信号通常通过两根导线之间的<strong>电压差</strong>来承载，而非绝对电压。</li>
+<li><strong>优点</strong>：能有效抵抗外部噪声。因为外部噪声对两根导线的影响趋于一致，所以电压差基本保持不变，信号受干扰较小。</li>
+</ul>
+<h4 id="_3"><strong>传输属性</strong><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>可传输模拟信号或数字信号。</li>
+<li>带宽取决于导线的粗细和传输距离。</li>
+<li>长距离传输会导致信号衰减严重，因此需要<strong>中继器 (Repeaters)</strong> 来放大信号。</li>
+</ul>
+<h4 id="_4"><strong>常见应用</strong><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>示例</strong>: <code>Cat 5e</code> (超五类线) 是常见的双绞线标准。</li>
+<li><strong>100-Mbps 以太网</strong>: 使用两对线，一对用于发送，一对用于接收。</li>
+<li><strong>1-Gbps 以太网</strong>: 同时使用全部四对线进行双向数据传输。</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">数据传输模式</p>
+<ul>
+<li><strong>单工 (Simplex)</strong>: 数据只能在一个方向上传输，只有一个发送方。
+    <code>发送方 Sender</code> -&gt; <code>接收方 Receiver</code></li>
+<li><strong>半双工 (Half-Duplex)</strong>: 数据可以在两个方向上传输，但不能同时进行。
+    <code>发送方 Sender</code> &lt;=&gt; <code>接收方 Receiver</code> (交替进行)</li>
+<li><strong>全双工 (Full-Duplex)</strong>: 数据可以同时在两个方向上传输。
+    <code>发送方 Sender</code> &lt;=&gt; <code>接收方 Receiver</code> (同时进行)</li>
+</ul>
+</div>
+<h4 id="_5"><strong>分类</strong><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>UTP (Unshielded Twisted Pair)</strong>: 非屏蔽双绞线</li>
+<li><strong>STP (Shielded Twisted Pair)</strong>: 屏蔽双绞线</li>
+<li><strong>SFTP (Shielded Foiled Twisted Pair)</strong>: 屏蔽箔式双绞线</li>
+</ul>
+<hr />
+<h3 id="3-coaxial-cable">3. 同轴电缆 (Coaxial Cable)<a class="headerlink" href="#3-coaxial-cable" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>优点</strong>: 相比非屏蔽双绞线，同轴电缆拥有更好的屏蔽效果和更大的带宽。</li>
+<li>可以在更长的距离上以更高的速度传输数据。</li>
+<li>具有高带宽（可达 6 GHz）和出色的抗噪声能力。</li>
+</ul>
+<p><strong>结构</strong>:
+1.  <strong>铜芯 (Copper Core)</strong>: 中心导体。
+2.  <strong>绝缘材料 (Insulating Material)</strong>: 包围铜芯。
+3.  <strong>编织外导体 (Braided Outer Conductor)</strong>: 金属屏蔽层。
+4.  <strong>保护塑料外皮 (Protective Plastic Covering)</strong>: 最外层。</p>
+<hr />
+<h3 id="4-power-lines">4. 电力线 (Power Lines)<a class="headerlink" href="#4-power-lines" title="Permanent link">&para;</a></h3>
+<ul>
+<li>利用现有的电力线网络进行数据通信。</li>
+<li>最初用于远程抄表、家庭设备控制等低速率通信。</li>
+<li>现在对通过电力线进行高速通信的兴趣重燃，可用于家庭局域网（LAN）和宽带互联网接入。</li>
+<li><strong>原理</strong>: 将高频数据信号叠加在低频的电力信号上进行传输。</li>
+</ul>
+<hr />
+<h3 id="5-fiber-optics">5. 光纤 (Fiber Optics)<a class="headerlink" href="#5-fiber-optics" title="Permanent link">&para;</a></h3>
+<p>光纤是长距离、高速传输的核心技术。</p>
+<ul>
+<li><strong>应用</strong>: 网络骨干、高速局域网和高速互联网接入。</li>
+<li><strong>光传输三要素</strong>:<ol>
+<li><strong>光源 (Light Source)</strong>: 利用光的脉冲或缺失来表示二进制的1和0。</li>
+<li><strong>传输介质 (Transmission Medium)</strong>: 超细的玻璃纤维，用于传输光脉冲。</li>
+<li><strong>探测器 (Detector)</strong>: 当光照射到其上时，产生电脉冲。</li>
+</ol>
+</li>
+</ul>
+<h4 id="_6"><strong>光源对比</strong><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>特性 (Item)</th>
+<th>LED (发光二极管)</th>
+<th>Semiconductor Laser (半导体激光器)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>数据速率 (Data Rate)</strong></td>
+<td>低 (Low)</td>
+<td>高 (High)</td>
+</tr>
+<tr>
+<td><strong>光纤类型 (Fiber Type)</strong></td>
+<td>多模 (Multi-mode)</td>
+<td>多模或单模 (Multi-mode or single-mode)</td>
+</tr>
+<tr>
+<td><strong>距离 (Distance)</strong></td>
+<td>短 (Short)</td>
+<td>长 (Long)</td>
+</tr>
+<tr>
+<td><strong>寿命 (Lifetime)</strong></td>
+<td>长 (Long life)</td>
+<td>短 (Short life)</td>
+</tr>
+<tr>
+<td><strong>温度敏感性</strong></td>
+<td>轻微 (Minor)</td>
+<td>显著 (Substantial)</td>
+</tr>
+<tr>
+<td><strong>成本 (Cost)</strong></td>
+<td>低 (Low cost)</td>
+<td>昂贵 (Expensive)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>接收端</strong>: 通常由一个<strong>光电二极管 (Photodiode)</strong> 组成，当被光照射时会产生电脉冲（速率可达约100 Gbps）。</li>
+</ul>
+<h4 id="_7"><strong>工作原理：全内反射</strong><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li>当光从光密介质（如石英玻璃）射向光疏介质（如空气）时，折射角会大于入射角。</li>
+<li>当入射角超过某个<strong>临界值</strong>时，光线会完全被反射回原介质，而不会逸出。这个现象称为<strong>全内反射 (Total Internal Reflection)</strong>。</li>
+<li>光纤就是利用这个原理将光信号约束在纤芯内进行长距离传输。</li>
+</ul>
+<h4 id="_8"><strong>光纤类型</strong><a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>单模光纤 (Single-Mode Fiber)</strong>:<ul>
+<li>纤芯非常细 (8-10微米)。</li>
+<li>光线沿直线传播，没有反射。</li>
+<li>适用于长距离、高带宽传输。</li>
+</ul>
+</li>
+<li><strong>多模光纤 (Multimode Fiber)</strong>:<ul>
+<li>纤芯较粗 (50微米)。</li>
+<li>光线以多种模式（角度）在纤芯内反射前进。</li>
+<li><strong>分类</strong>:<ul>
+<li><strong>阶跃折射率 (Step Index)</strong>: 纤芯折射率均匀。</li>
+<li><strong>渐变折射率 (Graded Index)</strong>: 纤芯折射率从中心向边缘逐渐降低，可以减少信号色散。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="_9"><strong>信号损耗与失真</strong><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p><strong>光衰减 (Light Attenuation)</strong></p>
+<ul>
+<li>指输出信号功率与输入信号功率的比率。</li>
+<li>通常用<strong>分贝/公里 (dB/km)</strong> 来衡量。</li>
+<li><span class="arithmatex">\(dB = 10 * log_{10} (输出功率 / 输入功率)\)</span></li>
+<li>在 <code>0.85μm</code>, <code>1.30μm</code>, 和 <code>1.55μm</code> 波段衰减较小，是通信的常用窗口。</li>
+</ul>
+</li>
+<li>
+<p><strong>色散 (Chromatic Dispersion)</strong></p>
+<ul>
+<li>光脉冲在光纤中传输时会发生展宽。</li>
+<li>展宽会导致相邻的脉冲重叠，从而干扰信号，引发误码。</li>
+<li><strong>解决方案</strong>:<ul>
+<li><strong>降低信令速率</strong>: 增加输入脉冲之间的距离，避免重叠。</li>
+<li><strong>孤子 (Solitons)</strong>: 利用自相位调制来抵消色散效应的特殊形状脉冲。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="6">6. 光纤电缆与连接<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<h4 id="_10"><strong>光缆结构</strong><a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<ul>
+<li>类似于同轴电缆，但没有金属编织层。</li>
+<li><strong>核心结构</strong>:<ul>
+<li><strong>纤芯 (Core)</strong>: 玻璃材质，用于传输光。</li>
+<li><strong>包层 (Cladding)</strong>: 玻璃材质，包裹在纤芯外，折射率较低以实现全内反射。</li>
+<li><strong>护套 (Jacket)</strong>: 塑料材质，保护内部结构。</li>
+</ul>
+</li>
+</ul>
+<h4 id="_11"><strong>光纤连接</strong><a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<div class="admonition question">
+<p class="admonition-title">如何连接光纤？</p>
+<p>有两种主要方式：临时连接和永久连接。</p>
+</div>
+<ol>
+<li>
+<p><strong>连接器 (Connectors)</strong></p>
+<ul>
+<li>光纤末端安装连接器，然后插入光纤插座。</li>
+<li>这是一种临时的、可重复插拔的连接方式，便于系统重构。</li>
+<li><strong>缺点</strong>: 会导致约 10% 到 20% 的光信号损失。</li>
+<li><strong>常见类型</strong>: LC, SC, ST, FC, MPO 等。</li>
+</ul>
+</li>
+<li>
+<p><strong>熔接 (Splicing)</strong></p>
+<ul>
+<li>用于永久性连接两根光纤。</li>
+<li><strong>机械熔接 (Mechanical Splices)</strong>: 将两根光纤的切割端精确对准并固定在一个套筒中。约有10%的光损失。</li>
+<li><strong>熔融熔接 (Fusion Splice)</strong>: 将两根光纤的末端熔化并融合在一起，形成一个牢固的连接。这种方式的<strong>衰减极小</strong>。</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="wireless-transmission-media">二、无线传输介质 (Wireless Transmission Media)<a class="headerlink" href="#wireless-transmission-media" title="Permanent link">&para;</a></h2>
+<p>无线传输依赖于电磁波在空间中的传播，无需物理介质。</p>
+<h3 id="1-electromagnetic-spectrum">1. 电磁波谱 (Electromagnetic Spectrum)<a class="headerlink" href="#1-electromagnetic-spectrum" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>产生</strong>: 移动的电子会产生电磁波，这些电磁波可以在空间（包括真空）中传播。</li>
+<li><strong>基本概念</strong>:<ul>
+<li><strong>频率 (Frequency, <em>f</em>)</strong>: 单位为赫兹 (Hz)，指电磁波每秒振荡的次数。</li>
+<li><strong>波长 (Wavelength, <em>λ</em>)</strong>: 单位为米 (m)，指波形上两个连续的波峰或波谷之间的距离。</li>
+</ul>
+</li>
+<li><strong>无线通信原理</strong>:<ol>
+<li>将天线连接到电路。</li>
+<li>天线将电信号转化为电磁波并向外广播。</li>
+<li>远处的接收器接收电磁波。</li>
+</ol>
+</li>
+<li><strong>基本公式</strong>: 在真空中，所有电磁波都以光速 (<em>c</em>) 传播，其速度与频率无关。
+    &gt; λ × <em>f</em> = <em>c</em> ≈ 3 × 10⁸ m/s</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">关于信息承载能力</p>
+<ul>
+<li>信号能承载的息量取决于接收功率，并且与其<strong>带宽</strong>成正比。</li>
+<li>大多数无线传输会使用一个较窄的频带来集中能量，以获得合理的数据传输速率。</li>
+</ul>
+</div>
+<h3 id="2-spread-spectrum">2. 扩频技术 (Spread Spectrum)<a class="headerlink" href="#2-spread-spectrum" title="Permanent link">&para;</a></h3>
+<p>扩频技术通过将信号扩展到更宽的频带上进行传输，以提高抗干扰和保密性。</p>
+<h4 id="fhss-frequency-hopping-spread-spectrum"><strong>跳频扩频 (FHSS - Frequency Hopping Spread Spectrum)</strong><a class="headerlink" href="#fhss-frequency-hopping-spread-spectrum" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>原理</strong>: 发射端以极高的速度（每秒数百次）在不同的频率之间切换（跳跃）。</li>
+<li><strong>优点</strong>:<ul>
+<li><strong>高保密性</strong>: 使传输难以被侦测和干扰，因此在军事通信中很受欢迎。</li>
+<li><strong>强抗干扰性</strong>: 对信号衰落和干扰有很好的抵抗力，尤其是在拥挤的频谱中。</li>
+</ul>
+</li>
+</ul>
+<h4 id="dsss-direct-sequence-spread-spectrum"><strong>直接序列扩频 (DSSS - Direct Sequence Spread Spectrum)</strong><a class="headerlink" href="#dsss-direct-sequence-spread-spectrum" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>原理</strong>: 使用一个特定的<strong>码序列 (Code Sequence)</strong> 将数据信号扩展到一个更宽的频带上。</li>
+<li><strong>优点</strong>:<ul>
+<li>允许多个信号共享同一个频段，只要它们使用不同的码序列即可。</li>
+</ul>
+</li>
+</ul>
+<p><img alt="alt text" src="../image-1.png" /></p>
+<h4 id="uwb-ultra-wideband"><strong>超宽带 (UWB - Ultra-WideBand)</strong><a class="headerlink" href="#uwb-ultra-wideband" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>原理</strong>: 发送一系列能量极低、速度极快的脉冲，并通过改变其载波频率来传递信息。</li>
+<li><strong>特点</strong>: 快速的脉冲变换使得信号被极薄地分布在一个非常宽的频带上。</li>
+</ul>
+<hr />
+<h2 id="transmission-theories">三、传输理论 (Transmission Theories)<a class="headerlink" href="#transmission-theories" title="Permanent link">&para;</a></h2>
+<p>本节探讨不同频段的电磁波在无线通信中的具体应用和特性。</p>
+<h3 id="1-radio-transmission">1. 无线电传输 (Radio Transmission)<a class="headerlink" href="#1-radio-transmission" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>特性</strong>:<ul>
+<li><strong>全向性 (Omnidirectional)</strong>: 信号向所有方向传播。</li>
+<li>可以传播很长的距离。</li>
+<li><strong>穿透性好</strong>: 能够轻易穿透建筑物。</li>
+<li><strong>易受干扰</strong>: 容易受到其他无线电信号的干扰。</li>
+</ul>
+</li>
+<li><strong>路径损耗/衰减 (Path Loss/Attenuation)</strong>:<ul>
+<li>无线电波的功率密度会随着与源头距离的增加而减小。</li>
+<li>对于低频无线电波，衰减与距离的平方成反比 (1/d²)。</li>
+</ul>
+</li>
+<li><strong>传播方式</strong>:<ul>
+<li><strong>VLF, LF, MF 频段</strong>: 无线电波（地波）会沿着地球的曲率传播。</li>
+<li><strong>HF, VHF 频段</strong>: 地波容易被地表吸收，但能够到达电离层的天波会被电离层折射，然后返回地球，实现超远距离通信。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-microwave-transmission">2. 微波传输 (Microwave Transmission)<a class="headerlink" href="#2-microwave-transmission" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>特性</strong>:<ul>
+<li><strong>定向传播</strong>: 沿直线传播，需要“视线”路径 (Line-of-Sight)。</li>
+<li>对于远距离通信，需要在两座塔之间设置<strong>中继器 (Repeaters)</strong>。</li>
+</ul>
+</li>
+<li><strong>挑战：多径衰落 (Multipath Fading)</strong><ul>
+<li>电磁波在空间中传播时会发散，经过反射、衍射的延迟波可能与直射波异相到达接收端，从而相互抵消，导致信号急剧减弱。</li>
+</ul>
+</li>
+<li><strong>解决方案</strong>:<ul>
+<li>预留约10%的信道作为备用。当某个特定频段因多径衰落而暂时中断时，系统可以切换到备用信道继续通信。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-infrared-transmission">3. 红外线传输 (Infrared Transmission)<a class="headerlink" href="#3-infrared-transmission" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>应用</strong>: 广泛用于短距离通信，例如电视、蓝光播放器和音响的遥控器。</li>
+<li><strong>特性</strong>:<ul>
+<li>相对定向。</li>
+<li>成本低廉，易于构建。</li>
+</ul>
+</li>
+<li><strong>优点</strong>:<ul>
+<li><strong>无法穿透固体</strong>: 这一特性减少了信号干扰和被窃听的风险，提高了通信的私密性。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-light-transmission">4. 光传输 (Light Transmission)<a class="headerlink" href="#4-light-transmission" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>自由空间光学 (Free-space optics)</strong>: 指非导向的光信号传输。例如，在两座建筑的屋顶上安装激光器来连接它们的局域网。</li>
+<li><strong>特性</strong>:<ul>
+<li><strong>单向性 (Unidirectional)</strong>。</li>
+<li>带宽极高。</li>
+<li>成本较低。</li>
+<li><strong>安全性高</strong>: 窄光束使得信号难以被截获。</li>
+</ul>
+</li>
+<li><strong>挑战</strong>:<ul>
+<li>白天太阳的热量会导致空气对流，形成湍流。这种不稳定的空气会使激光束偏离，可能导致其无法命中探测器。</li>
+<li><strong>解决方案</strong>: 在工程设计中必须留出足够的容错余量。</li>
+</ul>
+</li>
+</ul>
+<h2 id="theoretical-basis">四、传输理论的数学基础 (Theoretical Basis)<a class="headerlink" href="#theoretical-basis" title="Permanent link">&para;</a></h2>
+<h3 id="1-fourier-series">1. 傅里叶级数 (Fourier Series)<a class="headerlink" href="#1-fourier-series" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>核心思想</strong>: 任何一个行为合理的周期性函数（信号），都可以被分解（或构建）为一系列不同频率的正弦波和余弦波的加权和。</li>
+<li><strong>数学表示</strong>:<ul>
+<li>
+<p>一个周期函数 <code>g(t)</code> 可以表示为：</p>
+<p><span class="arithmatex">\(g(t) = c/2 + Σ_{n=1}^\infty a_n * sin(2πnft) + Σ_{n=1}^\infty
+ b_n * cos(2πnft)\)</span>
+    *   <strong>T</strong>: 周期 (Period)
+    *   <strong>f</strong>: 频率 (Frequency), f = 1/T
+    *   <strong>an, bn</strong>: 第n次谐波 (nth harmonics) 的正弦和余弦分量的振幅。
+    *   <strong>c</strong>: 决定信号平均值的常数。
+*   通过积分运算，可以从原始信号 <code>g(t)</code> 中计算出每个谐波的振幅 <code>an</code>, <code>bn</code> 和常数 <code>c</code>。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-bandwidth">2. 带宽 (Bandwidth)<a class="headerlink" href="#2-bandwidth" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>信号失真</strong>: 任何传输介质都会对其承载的傅里叶分量（谐波）产生不同程度的衰减，从而导致信号失真。</li>
+<li><strong>截止频率</strong>: 对于物理线路，通常存在一个<strong>截止频率 (cutoff frequency)</strong>。低于该频率的信号分量可以基本无损地通过，而高于该频率的信号分量则会被严重衰减。</li>
+<li><strong>定义</strong>: <strong>带宽 (Bandwidth)</strong> 是指能够不被严重衰减地通过传输介质的频率范围的宽度。<ul>
+<li>带宽是传输介质的物理属性，取决于其构造、厚度、长度和材料等。</li>
+</ul>
+</li>
+<li><strong>信号类型</strong>:<ul>
+<li><strong>基带信号 (Baseband signals)</strong>: 信号频率从0开始到一个最大值。</li>
+<li><strong>通带信号 (Passband signals)</strong>: 信号被平移到一个更高的频率范围。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="data-rate-limits">五、数据速率限制 (Data Rate Limits)<a class="headerlink" href="#data-rate-limits" title="Permanent link">&para;</a></h2>
+<div class="admonition success">
+<p class="admonition-title">核心问题</p>
+<p>在给定的带宽下，我们最高能以多快的速率传输数据？</p>
+</div>
+<h3 id="1">1. 带宽限制与数据速率<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>有限的带宽意味着只有有限数量的谐波能够通过信道，这直接限制了信号的变化速度，从而限制了数据速率。</li>
+<li><strong>示例</strong>: 如果一个信道的带宽限制为3000 Hz，那么能够有效传输的谐波数量是有限的。数据速率越高，其基波频率就越高，能通过的高次谐波就越少，信号失真就越严重。</li>
+</ul>
+<h3 id="2-nyquists-theorem-">2. 奈奎斯特定理 (Nyquist's Theorem) - 无噪声信道<a class="headerlink" href="#2-nyquists-theorem-" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>内容</strong>: 对于一个带宽为 <code>B</code> Hz的无噪声信道，其最大数据速率为：
+    &gt; <strong>最大数据速率 = 2 * B * log₂V (bits/sec)</strong></li>
+<li><strong>V</strong>: 离散信号的电平级数（或符号种类数）。</li>
+<li><strong>结论</strong>: 即使没有噪声，信道容量也是有限的。可以通过增加信号的电平级数 <code>V</code> 来提高数据速率。</li>
+</ul>
+<h3 id="3-shannons-theorem-">3. 香农定理 (Shannon's Theorem) - 有噪声信道<a class="headerlink" href="#3-shannons-theorem-" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>信噪比 (SNR - Signal-to-Noise Ratio)</strong>: 信号功率 (S) 与噪声功率 (N) 的比值，即 S/N。<ul>
+<li>通常用分贝 (dB) 表示: <code>10 * log₁₀(S/N)</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>内容</strong>: 对于一个带宽为 <code>B</code> Hz、信噪比为 <code>S/N</code> 的有噪声信道，其理论最大容量 (Capacity) 为：</p>
+<blockquote>
+<p><strong>信道容量 = B * log₂(1 + S/N) (bits/sec)</strong>
+SNR (dB) = 10 * log₁₀(S/N)
+*   <strong>结论</strong>: 这个公式给出了任何信道在存在噪声情况下的理论速率上限，无论采用何种编码或调制技术都无法超越。</p>
+</blockquote>
+</li>
+</ul>
+<hr />
+<h2 id="digital-modulation">六、数字调制 (Digital Modulation)<a class="headerlink" href="#digital-modulation" title="Permanent link">&para;</a></h2>
+<p><strong>定义</strong>: 将数字比特流与模拟信号相互转换的过程。</p>
+<ul>
+<li><strong>基带传输 (Baseband Transmission)</strong>: 信号占据从零开始的频率范围，常用于有线传输。</li>
+<li><strong>通带传输 (Passband Transmission)</strong>: 通过调制一个<strong>载波 (carrier)</strong> 信号的振幅、频率或相位，使信号占据载波频率附近的一个频段。常用于无线和光纤信道。</li>
+</ul>
+<h3 id="1-line-codes">1. 基带传输与线路编码 (Line Codes)<a class="headerlink" href="#1-line-codes" title="Permanent link">&para;</a></h3>
+<p><strong>目标</strong>:
+1.  <strong>带宽效率 (Bandwidth Efficiency)</strong>: 在有限带宽内传输尽可能高的数据速率。
+2.  <strong>时钟恢复 (Clock Recovery)</strong>: 接收方需要从接收到的信号中提取同步时钟信号。
+3.  <strong>直流平衡 (DC Balance)</strong>: 信号在短时间内正负电压分量应大致相等，以消除直流分量。</p>
+<h4 id="_12"><strong>常见线路编码方案</strong><a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>不归零码 (NRZ - Non-Return-to-Zero)</strong>: 用正电平表示1，负电平表示0。<ul>
+<li><strong>缺点</strong>: 连续的1或0会导致信号长时间不变，使时钟恢复困难。</li>
+</ul>
+</li>
+<li><strong>反向不归零码 (NRZI - NRZ Invert)</strong>: 遇到1时电平翻转，遇到0时保持不变。<ul>
+<li><strong>优点</strong>: 解决了连续1的问题。</li>
+<li><strong>缺点</strong>: 连续的0仍然是问题。</li>
+</ul>
+</li>
+<li><strong>曼彻斯特编码 (Manchester Encoding)</strong>: 将时钟信号与数据信号进行异或(XOR)运算。每个比特周期内都有一次电平跳变。<ul>
+<li><strong>优点</strong>: 完美解决了时钟恢复问题。</li>
+<li><strong>缺点</strong>: 带宽需求是NRZ的两倍（100%开销）。</li>
+</ul>
+</li>
+<li><strong>双极性编码 (Bipolar Encoding / AMI)</strong>: 使用正、负、零三个电平。0用零电平表示，1交替用正、负电平表示。<ul>
+<li><strong>优点</strong>: 实现了直流平衡。</li>
+</ul>
+</li>
+</ul>
+<h4 id="0"><strong>解决连续0问题的策略</strong><a class="headerlink" href="#0" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>4B/5B 编码</strong>: 将每4比特数据映射为一个特定的5比特码型。这些码型经过精心设计，保证不会出现超过三个连续的0。<ul>
+<li><strong>开销</strong>: 25%。</li>
+</ul>
+</li>
+<li><strong>加扰 (Scrambling)</strong>: 在发送前，将数据与一个伪随机序列进行异或。接收端再用相同的序列异或一次即可恢复原数据。<ul>
+<li><strong>优点</strong>: 无带宽开销。</li>
+<li><strong>缺点</strong>: 理论上仍可能出现长串的0（当数据与伪随机序列相同时）。</li>
+</ul>
+</li>
+<li><strong>8B/10B 编码</strong>: 一种更复杂的编码，能同时保证时钟恢复和直流平衡。</li>
+</ol>
+<h3 id="2-passband-transmission">2. 通带传输 (Passband Transmission)<a class="headerlink" href="#2-passband-transmission" title="Permanent link">&para;</a></h3>
+<p>通过改变高频载波信号的属性来承载基带信号。</p>
+<h4 id="_13"><strong>基本调制方式</strong><a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>幅移键控 (ASK - Amplitude Shift Keying)</strong>: 用不同的振幅表示0和1。</li>
+<li><strong>频移键控 (FSK - Frequency Shift Keying)</strong>: 用不同的频率表示0和1。</li>
+<li><strong>相移键控 (PSK - Phase Shift Keying)</strong>: 用不同的相位表示0和1。<ul>
+<li><strong>BPSK (Binary PSK)</strong>: 使用0°和180°两个相位，每个符号传输1比特。</li>
+<li><strong>QPSK (Quadrature PSK)</strong>: 使用4个相位（如45°, 135°, 225°, 315°），每个符号可以传输2比特。
+<img alt="alt text" src="../image-2.png" /></li>
+</ul>
+</li>
+</ul>
+<p><img alt="alt text" src="../image-3.png" /></p>
+<h4 id="constellation-diagram"><strong>高级调制方式：星座图 (Constellation Diagram)</strong><a class="headerlink" href="#constellation-diagram" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>正交振幅调制 (QAM - Quadrature Amplitude Modulation)</strong>: 同时改变信号的<strong>振幅和相位</strong>来传输数据。<ul>
+<li>星座图上的每个点代表一个唯一的符号（对应一组比特）。</li>
+<li><strong>QAM-16</strong>: 有16个点，每个符号传输4比特。</li>
+<li><strong>QAM-64</strong>: 有64个点，每个符号传输6比特。</li>
+</ul>
+</li>
+<li><strong>格雷码 (Gray Code)</strong>:<ul>
+<li>在星座图中，为相邻的符号分配仅相差一个比特的比特组合。</li>
+<li><strong>目的</strong>: 当接收端因噪声等原因误判为相邻符号时，只会产生一个比特的错误，而不是多个，从而大大降低了误码率。</li>
+</ul>
+</li>
+</ul>
+<h2 id="_14"><img alt="alt text" src="../image-4.png" /><a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<h2 id="multiplexing">七、多路复用 (Multiplexing)<a class="headerlink" href="#multiplexing" title="Permanent link">&para;</a></h2>
+<p><strong>定义</strong>: 为了经济地利用网络资源，让多个信号共享同一条物理线路的技术。</p>
+<h3 id="1-fdm-frequency-division-multiplexing">1. 频分多路复用 (FDM - Frequency Division Multiplexing)<a class="headerlink" href="#1-fdm-frequency-division-multiplexing" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>原理</strong>: 将总频谱划分为多个不重叠的频段，每个用户分配一个固定的频段。</li>
+<li><strong>保护带 (Guard Band)</strong>: 在相邻频段之间留出未使用的小段频谱，以防止信道间干扰。</li>
+<li><strong>正交频分复用 (OFDM - Orthogonal FDM)</strong>: 一种更高效的FDM。它将子载波紧密地排列在一起，子载波之间相互正交，因此在采样点上不会相互干扰，无需保护带。<ul>
+<li><strong>应用</strong>: 802.11 (Wi-Fi), 4G/5G蜂窝网络等。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-tdm-time-division-multiplexing">2. 时分多路复用 (TDM - Time Division Multiplexing)<a class="headerlink" href="#2-tdm-time-division-multiplexing" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>原理</strong>: 用户轮流（Round-robin）在不同的时间片 (Time Slot) 内使用整个信道的全部带宽。</li>
+<li><strong>保护时间 (Guard Time)</strong>: 在时间片之间插入短暂的间隙，以应对微小的时序偏差。</li>
+<li><strong>同步TDM</strong>: 无论用户有无数据要发送，都为其分配固定的时间片。</li>
+<li><strong>统计TDM (STDM)</strong>: 按需动态地为用户分配时间片，提高了信道利用率。</li>
+</ul>
+<h3 id="3-cdm-code-division-multiplexing">3. 码分多路复用 (CDM - Code Division Multiplexing)<a class="headerlink" href="#3-cdm-code-division-multiplexing" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>原理</strong>: 也称为<strong>码分多址 (CDMA)</strong>。允许多个用户在<strong>同一时间和同一频率</strong>上发送信号。</li>
+<li><strong>码片序列 (Chip Sequence)</strong>: 每个用户被分配一个唯一的、相互正交的码片序列。</li>
+<li><strong>分离</strong>: 接收端利用码片序列的正交性，通过内积运算从混合信号中分离出特定用户的信号。</li>
+<li><strong>优点</strong>: 抗干扰能力强。</li>
+</ul>
+<h3 id="4-wdm-wavelength-division-multiplexing">4. 波分多路复用 (WDM - Wavelength Division Multiplexing)<a class="headerlink" href="#4-wdm-wavelength-division-multiplexing" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>原理</strong>: 本质上是光纤上的FDM。将不同波长（颜色）的光信号合并到一根光纤中传输。</li>
+<li><strong>密集波分复用 (DWDM)</strong>: 可以复用大量信道，且信道间间隔极小。</li>
+</ul>
+<h3 id="_15"><strong>多路复用技术对比</strong><a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">技术</th>
+<th style="text-align: left;">资源划分方式</th>
+<th style="text-align: left;">特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>FDMA</strong></td>
+<td style="text-align: left;"><strong>频率</strong></td>
+<td style="text-align: left;">每个用户在自己的子信道上持续通信。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>TDMA</strong></td>
+<td style="text-align: left;"><strong>时间</strong></td>
+<td style="text-align: left;">每个用户在自己的时间片内占用整个信道。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CDMA</strong></td>
+<td style="text-align: left;"><strong>编码</strong></td>
+<td style="text-align: left;">所有用户在所有时间、所有频率上共存，通过编码区分。</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="alt text" src="../image-5.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.tabs", "navigation.top"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
